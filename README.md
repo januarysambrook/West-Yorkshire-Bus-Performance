@@ -27,7 +27,7 @@ demand, service supply, funding and reliability.
 
 ### 1. Demand recovered further than the network did
 
-![Recovery index since 2019](Screenshot%202026-09-21%20113038.png)
+![Recovery index since 2019](images/wy-recovery-index.png)
 
 Journeys sit at 81.1% of the 2019 baseline, vehicle miles at 75.5%. The gap is the
 finding. A recovery story told only with passenger numbers looks like a demand problem.
@@ -35,7 +35,7 @@ Read against mileage, it looks more like a supply decision.
 
 ### 2. The mileage that survived is publicly supported
 
-![Commercial versus supported mileage](Screenshot%202026-09-21%20113136.png)
+![Commercial versus supported mileage](images/wy-mileage-mix.png)
 
 Commercial mileage is down 29.4% on 2019 while supported mileage is up 18.3%. Supported
 services now account for 16.1% of all vehicle miles. The mix has shifted, not just the
@@ -44,7 +44,7 @@ commercial one.
 
 ### 3. Support per journey has roughly doubled
 
-![Support per passenger journey](Screenshot%202026-09-21%20113203.png)
+![Support per passenger journey](images/wy-support-per-journey.png)
 
 £0.25 per journey in 2025 against £0.13 in 2019. The 2021 peak is a denominator effect
 from near-zero passenger volumes, not a funding surge. Figures are current prices with
@@ -52,7 +52,7 @@ no inflation adjustment.
 
 ### 4. West Yorkshire ranks fourth of six
 
-![2025 recovery by combined authority](Screenshot%202026-09-21%20113223.png)
+![2025 recovery by combined authority](images/peer-recovery.png)
 
 Against Greater Manchester, Merseyside, South Yorkshire, Tyne and Wear and the West
 Midlands, West Yorkshire is fourth on passenger recovery and fourth on punctuality.
@@ -65,7 +65,7 @@ Tyne and Wear and South Yorkshire the pattern reverses.
 
 ### 5. Spending more does not buy punctuality
 
-![Punctuality by combined authority](Screenshot%202026-09-21%20113241.png)
+![Punctuality by combined authority](images/peer-punctuality.png)
 
 Merseyside and Greater Manchester both record roughly £0.50 of public support per
 journey. Merseyside is the best performer at 92% on time, Greater Manchester the worst
@@ -88,7 +88,7 @@ ending March 2025.
 
 ## The model
 
-![Star schema](Screenshot%202026-09-21%20093104.png)
+![Star schema](images/data-model.png)
 
 Four fact tables, each filtered by a shared `Dim_Year` and a shared `Authority_Mapping`.
 Facts are never joined to one another, so measures over journeys and over support can
@@ -150,10 +150,11 @@ Every step lives in Power Query, so the report refreshes when DfT publishes new 
 ## Repository contents
 
 - `README.md` this file
+- `data/raw/` the DfT source workbooks exactly as downloaded
+- `data/Authority_Mapping.csv` the hand-built peer lookup
 - `docs/support-data-note.md` why two peers report zero or negative net support
+- `images/` the report visuals used above, plus the data model
 - `West_Yorkshire_Bus_Performance_Report.pptx` the written report
-- `Screenshot 2026-09-21 *.png` report visuals used above
-- `Screenshot 2026-09-21 093104.png` the data model
 
 ---
 
